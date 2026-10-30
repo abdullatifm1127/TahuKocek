@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daftar – Tahu Kocek</title>
+  <link rel="stylesheet" href="../styles/register.css" />
+</head>
+<body>
+
+  <div class="page-wrapper">
+
+    <!-- Brand / Header -->
+    <header class="brand">
+      <div class="brand-logo">TK</div>
+      <div class="brand-info">
+        <span class="brand-name">TAHU KOCEK</span>
+        <span class="brand-tagline">Daftar untuk mulai memesan</span>
+        <span class="brand-badge">DAFTAR PELANGGAN</span>
+      </div>
+    </header>
+
+    <!-- Hero Text -->
+    <section class="hero">
+      <h1 class="hero-title">Buat akun,<br />pesan lebih mudah.</h1>
+      <p class="hero-subtitle">
+        Daftar sekarang dan nikmati kemudahan memesan tahu kocek favoritmu,<br />
+        pantau riwayat pesanan, dan dapatkan promo eksklusif.
+      </p>
+    </section>
+
+    <!-- Register Card -->
+    <div class="card">
+      <h2 class="card-title">Buat akunmu</h2>
+      <p class="card-subtitle">Isi data diri kamu untuk membuat akun baru.</p>
+
+      <form action="../resources/register.php" method="POST" novalidate id="registerForm">
+
+        <!-- Nama Lengkap -->
+        <div class="form-group">
+          <label for="nama">Nama lengkap</label>
+          <div class="input-wrapper">
+            <span class="input-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </span>
+            <input
+              type="text"
+              id="nama"
+              name="nama"
+              placeholder="Nama lengkapmu"
+              autocomplete="name"
+              required
+            />
+          </div>
+          <span class="field-error" id="errNama"></span>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email</label>
+          <div class="input-wrapper">
+            <span class="input-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+            </span>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="nama@email.com"
+              autocomplete="email"
+              required
+            />
+          </div>
+          <span class="field-error" id="errEmail"></span>
+        </div>
+
+        <!-- No. HP -->
+        <div class="form-group">
+          <label for="phone">No. HP / WhatsApp</label>
+          <div class="input-wrapper">
+            <span class="input-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.56 3.44 2 2 0 0 1 3.53 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </span>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="08xxxxxxxxxx"
+              autocomplete="tel"
+              required
+            />
+          </div>
+          <span class="field-error" id="errPhone"></span>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password">Kata sandi</label>
+          <div class="input-wrapper">
+            <span class="input-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </span>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Min. 8 karakter"
+              autocomplete="new-password"
+              required
+            />
+            <button type="button" class="toggle-password" data-target="password" aria-label="Tampilkan kata sandi">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+          <!-- Password strength indicator -->
+          <div class="strength-bar" id="strengthBar">
+            <div class="strength-fill" id="strengthFill"></div>
+          </div>
+          <span class="strength-label" id="strengthLabel"></span>
+          <span class="field-error" id="errPassword"></span>
+        </div>
+
+        <!-- Konfirmasi Password -->
+        <div class="form-group">
+          <label for="confirm_password">Konfirmasi kata sandi</label>
+          <div class="input-wrapper">
+            <span class="input-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </span>
+            <input
+              type="password"
+              id="confirm_password"
+              name="confirm_password"
+              placeholder="Ulangi kata sandi"
+              autocomplete="new-password"
+              required
+            />
+            <button type="button" class="toggle-password" data-target="confirm_password" aria-label="Tampilkan konfirmasi kata sandi">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+          <span class="field-error" id="errConfirm"></span>
+        </div>
+
+        <!-- Global error / success -->
+        <div class="alert-message" id="alertMsg" role="alert" aria-live="polite"></div>
+
+        <!-- Syarat & Ketentuan -->
+        <div class="form-check">
+          <input type="checkbox" id="agree" name="agree" required />
+          <label for="agree">
+            Saya menyetujui <a href="#" class="link-terms">Syarat &amp; Ketentuan</a> dan
+            <a href="#" class="link-terms">Kebijakan Privasi</a> Tahu Kocek.
+          </label>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn-register">Buat akun →</button>
+
+      </form>
+
+      <p class="login-prompt">
+        Sudah punya akun? <a href="login.html" class="login-link">Masuk di sini</a>
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+    /* ── Toggle show/hide password ── */
+    document.querySelectorAll('.toggle-password').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const input = document.getElementById(btn.dataset.target);
+        const isHidden = input.type === 'password';
+        input.type = isHidden ? 'text' : 'password';
+        btn.setAttribute('aria-label', isHidden ? 'Sembunyikan kata sandi' : 'Tampilkan kata sandi');
+      });
+    });
+
+    /* ── Password strength indicator ── */
+    const pwInput      = document.getElementById('password');
+    const strengthFill = document.getElementById('strengthFill');
+    const strengthLabel = document.getElementById('strengthLabel');
+
+    pwInput.addEventListener('input', () => {
+      const val = pwInput.value;
+      let score = 0;
+      if (val.length >= 8)              score++;
+      if (/[A-Z]/.test(val))            score++;
+      if (/[0-9]/.test(val))            score++;
+      if (/[^A-Za-z0-9]/.test(val))     score++;
+
+      const levels = [
+        { label: '',         color: '#e0e0e0', pct: '0%'   },
+        { label: 'Lemah',    color: '#e04e1a', pct: '25%'  },
+        { label: 'Cukup',    color: '#f5c842', pct: '55%'  },
+        { label: 'Kuat',     color: '#4caf50', pct: '80%'  },
+        { label: 'Sangat kuat', color: '#1a3a2e', pct: '100%' },
+      ];
+
+      const lvl = levels[score] || levels[0];
+      strengthFill.style.width = val.length ? lvl.pct : '0%';
+      strengthFill.style.background = lvl.color;
+      strengthLabel.textContent = val.length ? lvl.label : '';
+      strengthLabel.style.color = lvl.color;
+    });
+
+    /* ── Client-side validation ── */
+    document.getElementById('registerForm').addEventListener('submit', (e) => {
+      let valid = true;
+
+      const clearErr = id => { document.getElementById(id).textContent = ''; };
+      const setErr   = (id, msg) => { document.getElementById(id).textContent = msg; valid = false; };
+
+      clearErr('errNama'); clearErr('errEmail');
+      clearErr('errPhone'); clearErr('errPassword'); clearErr('errConfirm');
+      document.getElementById('alertMsg').textContent = '';
+      document.getElementById('alertMsg').className = 'alert-message';
+
+      const nama    = document.getElementById('nama').value.trim();
+      const email   = document.getElementById('email').value.trim();
+      const phone   = document.getElementById('phone').value.trim();
+      const pass    = document.getElementById('password').value;
+      const confirm = document.getElementById('confirm_password').value;
+      const agree   = document.getElementById('agree').checked;
+
+      if (!nama)                        setErr('errNama',     'Nama tidak boleh kosong.');
+      if (!email || !/\S+@\S+\.\S+/.test(email)) setErr('errEmail', 'Masukkan email yang valid.');
+      if (!phone || !/^08\d{7,13}$/.test(phone)) setErr('errPhone', 'Masukkan nomor HP yang valid (contoh: 081234567890).');
+      if (pass.length < 8)              setErr('errPassword', 'Kata sandi minimal 8 karakter.');
+      if (pass !== confirm)             setErr('errConfirm',  'Konfirmasi kata sandi tidak cocok.');
+
+      if (!agree) {
+        const al = document.getElementById('alertMsg');
+        al.textContent = 'Kamu harus menyetujui syarat & ketentuan.';
+        al.className = 'alert-message error';
+        valid = false;
+      }
+
+      if (!valid) e.preventDefault();
+    });
+
+    /* ── Tampilkan pesan dari server (via URL param) ── */
+    const params = new URLSearchParams(window.location.search);
+    const alertEl = document.getElementById('alertMsg');
+    if (params.get('error') === 'exists') {
+      alertEl.textContent = 'Email sudah terdaftar. Silakan gunakan email lain atau masuk.';
+      alertEl.className = 'alert-message error';
+    } else if (params.get('error') === 'server') {
+      alertEl.textContent = 'Terjadi kesalahan. Silakan coba lagi.';
+      alertEl.className = 'alert-message error';
+    } else if (params.get('success') === '1') {
+      alertEl.textContent = 'Akun berhasil dibuat! Mengalihkan ke beranda...';
+      alertEl.className = 'alert-message success';
+    }
+  </script>
+
+</body>
+</html>

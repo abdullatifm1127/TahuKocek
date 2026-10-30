@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beranda – Tahu Kocek </title>
+  <link rel="stylesheet" href="../styles/homePageUser.css?v=2" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════ -->
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="brand-logo">TK</div>
+      <div class="brand-text">
+        <span class="brand-name">TAHU KOCEK GUDES</span>
+        <span class="brand-sub">Sedang buka online</span>
+      </div>
+    </div>
+    <div class="navbar-right">
+      <a href="../resources/logout.php" class="btn-logout">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+        Keluar
+      </a>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       HERO BANNER
+  ══════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Mau Tahu kocek yang mana?</h1>
+      <p>Pilih menu favorit, atur level pedas, tahu kami racik hangat untukmu.</p>
+    </div>
+    <div class="hero-image">
+      <!-- Ilustrasi tahu goreng (emoji sebagai placeholder) -->
+      <span class="hero-emoji">🧆</span>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       MAIN CONTENT
+  ══════════════════════════════════════════ -->
+  <main class="main-layout">
+
+    <!-- ── Kolom Kiri: Menu ── -->
+    <section class="menu-section">
+
+      <!-- Filter level pedas -->
+      <div class="filter-bar">
+        <span class="filter-label">Level pedas:</span>
+        <button class="filter-btn active" data-level="0">Semua</button>
+        <button class="filter-btn" data-level="1">1</button>
+        <button class="filter-btn" data-level="2">2</button>
+        <button class="filter-btn" data-level="3">3</button>
+        <span class="filter-note">0 santai — 3 nampol 🌶️</span>
+      </div>
+
+      <h2 class="menu-title">Menu Tahu Kocek</h2>
+
+      <div class="menu-grid" id="menuGrid">
+        <!-- Diisi oleh JS dari API -->
+        <div class="menu-loading" id="menuLoading" style="grid-column:1/-1;text-align:center;padding:40px;color:#aaa">
+          Memuat menu...
+        </div>
+      </div><!-- /menu-grid -->
+    </section>
+
+    <!-- ── Kolom Kanan: Sidebar Pesanan ── -->
+    <aside class="order-sidebar">
+
+      <div class="sidebar-header">
+        <div class="sidebar-step">
+          <span class="step-num">02</span>
+          <span class="step-label">CEK PESANAN</span>
+        </div>
+        <div class="sidebar-badge" id="cartCount">0</div>
+      </div>
+
+      <h2 class="sidebar-title">Pesananmu</h2>
+
+      <!-- Daftar item pesanan -->
+      <div class="order-list" id="orderList">
+        <p class="empty-cart">Belum ada pesanan. Tambahkan menu!</p>
+      </div>
+
+      <!-- Cara ambil -->
+      <div class="pickup-section">
+        <p class="pickup-label">Cara ambil pesanan</p>
+        <div class="pickup-options">
+          <button class="pickup-btn active" id="btnAmbil" onclick="setPickup('ambil')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            Dine In
+          </button>
+          <button class="pickup-btn" id="btnAntar" onclick="setPickup('antar')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="3" width="15" height="13"/>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+              <circle cx="5.5" cy="18.5" r="2.5"/>
+              <circle cx="18.5" cy="18.5" r="2.5"/>
+            </svg>
+            Take Away
+          </button>
+        </div>
+      </div>
+
+      <!-- Ringkasan biaya -->
+      <div class="order-summary">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="subtotal">Rp0</span>
+        </div>
+        <div class="summary-row">
+          <span>Biaya layanan</span>
+          <span id="serviceFee">Rp1.000</span>
+        </div>
+        <div class="summary-row total-row">
+          <span>Total</span>
+          <span id="totalPrice">Rp1.000</span>
+        </div>
+      </div>
+
+      <!-- Tombol bayar -->
+      <button class="btn-bayar" id="btnBayar" onclick="checkout()">
+        Lanjut ke pembayaran →
+      </button>
+
+      <p class="sidebar-note">Pesanan siap sekitar 10–15 menit</p>
+
+    </aside>
+
+  </main>
+
+  <script>
+    /* ── Session guard (client-side) ── */
+    (function() {
+      function getCookie(name) {
+        const match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+        return match ? decodeURIComponent(match[1]) : null;
+      }
+      if (!getCookie('tk_logged')) {
+        window.location.replace('../routes/login.html?error=auth');
+      }
+    })();
+  </script>
+
+  <script>
+    /* ══════════════════════════════════════════════════
+       LOAD MENU DARI API + RENDER CARDS + PEMBAYARAN
+    ══════════════════════════════════════════════════ */
+
+    const MENU_API    = '../resources/api/menu.php';
+    const SETTING_API = '../resources/api/setting.php';
+    const PESANAN_API = '../resources/api/pesanan.php';
+
+    let menuData = [];
+    let qrisUrl  = '';   // URL foto QRIS dari toko
+
+    /* ── Render satu card menu ── */
+    function renderCard(v, isBest = false) {
+      /* FIX foto double: tampilkan img ATAU emoji, tidak keduanya */
+      const cardImgContent = v.foto_url
+        ? `<img src="${v.foto_url}" alt="${v.nama}"
+               style="width:100%;height:100%;object-fit:cover;display:block"
+               onerror="this.replaceWith(document.createTextNode('${v.emoji || '🧆'}'))">`
+        : `<span style="font-size:52px">${v.emoji || '🧆'}</span>`;
+
+      const levelMatch = v.nama.match(/(\d)/);
+      const level = levelMatch ? Math.min(parseInt(levelMatch[1]), 4) : 1;
+      const dots = [1,2,3,4].map(i =>
+        `<span class="dot ${i <= level ? 'active' : ''}"></span>`
+      ).join('');
+
+      const stokHabis = v.stok <= 0;
+
+      return `
+        <div class="menu-card" data-id="${v.id}" data-name="${v.nama}"
+             data-price="${v.harga}" data-level="${level}"
+             style="${stokHabis ? 'opacity:.55;pointer-events:none' : ''}">
+          ${isBest ? '<div class="card-badge">PALING LARIS</div>' : ''}
+          ${stokHabis ? '<div class="card-badge" style="background:#888">HABIS</div>' : ''}
+          <div class="card-img">
+            ${cardImgContent}
+          </div>
+          <div class="card-body">
+            <div class="card-info">
+              <h3 class="card-name">${v.nama}</h3>
+              <span class="card-price">${v.harga_fmt || 'Rp'+Number(v.harga).toLocaleString('id-ID')}</span>
+            </div>
+            <p class="card-desc">${v.deskripsi || ''}</p>
+            <div class="card-footer">
+              <div class="level-dots">${dots}</div>
+              <button class="btn-tambah"
+                      onclick="addToCart('${String(v.id)}','${v.nama.replace(/'/g,"\\'")}',${v.harga})"
+                      ${stokHabis ? 'disabled' : ''}>
+                + Tambah
+              </button>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    /* ── Render grid menu ── */
+    function renderMenuGrid(filterLevel = 0) {
+      const grid = document.getElementById('menuGrid');
+      const rows = filterLevel === 0
+        ? menuData
+        : menuData.filter(v => {
+            const m = v.nama.match(/(\d)/);
+            return m && parseInt(m[1]) === filterLevel;
+          });
+
+      if (!rows.length) {
+        grid.innerHTML = `<p style="grid-column:1/-1;text-align:center;color:#aaa;padding:32px">
+          Tidak ada menu untuk level ini.</p>`;
+        return;
+      }
+      grid.innerHTML = rows.map((v, i) => renderCard(v, i === 0)).join('');
+      reattachFilterButtons();
+    }
+
+    /* ── Load menu dari server ── */
+    async function loadMenu() {
+      try {
+        const res  = await fetch(MENU_API);
+        const json = await res.json();
+        if (!json.success) throw new Error(json.message);
+        menuData = json.data;
+        renderMenuGrid(0);
+      } catch (e) {
+        document.getElementById('menuGrid').innerHTML =
+          `<p style="grid-column:1/-1;text-align:center;color:#c62828;padding:32px">
+            Gagal memuat menu. Coba refresh halaman.</p>`;
+      }
+    }
+
+    /* ── Load foto QRIS toko ── */
+    async function loadQris() {
+      try {
+        const res  = await fetch(SETTING_API);
+        const json = await res.json();
+        if (json.success && json.toko) qrisUrl = json.toko.qris_url || '';
+      } catch(e) { /* silent */ }
+    }
+
+    /* ── Filter level ── */
+    function reattachFilterButtons() {
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        const fresh = btn.cloneNode(true);
+        btn.parentNode.replaceChild(fresh, btn);
+        fresh.addEventListener('click', () => {
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          fresh.classList.add('active');
+          renderMenuGrid(parseInt(fresh.dataset.level));
+        });
+      });
+    }
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderMenuGrid(parseInt(btn.dataset.level));
+      });
+    });
+
+    /* ══════════════════════════════════════════════════
+       MODAL PEMBAYARAN
+    ══════════════════════════════════════════════════ */
+
+    /* Inject modal ke body (sekali saja) */
+    function injectPaymentModal() {
+      if (document.getElementById('paymentModal')) return;
+      const modal = document.createElement('div');
+      modal.id = 'paymentModal';
+      modal.innerHTML = `
+        <div class="pm-overlay" id="pmOverlay"></div>
+        <div class="pm-sheet" id="pmSheet">
+          <div class="pm-handle"></div>
+          <div class="pm-header">
+            <h2 class="pm-title" id="pmTitle">Pilih metode pembayaran</h2>
+            <button class="pm-close" id="pmClose" aria-label="Tutup">&times;</button>
+          </div>
+          <div class="pm-body" id="pmBody"></div>
+        </div>`;
+      document.body.appendChild(modal);
+
+      document.getElementById('pmOverlay').addEventListener('click', closePaymentModal);
+      document.getElementById('pmClose').addEventListener('click', closePaymentModal);
+    }
+
+    /* ── closePaymentModal ── */
+
+    function closePaymentModal() {
+      const m = document.getElementById('paymentModal');
+      if (m) m.classList.remove('pm-open');
+      document.body.style.overflow = '';
+    }
+
+    /* ── Step 1: Pilih metode bayar — sudah didefinisikan di atas ── */
+
+    /* helper baca cookie */
+    function getCookieVal(name) {
+      const m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+      return m ? decodeURIComponent(m[1]) : '';
+    }
+
+    /* ── Step 0: Isi detail pesanan (nama + catatan) sebelum pilih bayar ── */
+    function showStepDetail() {
+      const namaDefault = getCookieVal('tk_nama') || '';
+      document.getElementById('pmTitle').textContent = 'Detail pesanan';
+
+      // Ringkasan cart
+      const items = Object.entries(window.cart || {});
+      const subtotal = items.reduce((s,[,v])=>s+v.price*v.qty, 0);
+      const SERVICE_FEE = window.SERVICE_FEE || 1000;
+      const total = subtotal + SERVICE_FEE;
+      const fmt = n => 'Rp' + Number(n).toLocaleString('id-ID');
+
+      const ringkasan = items.map(([,v]) =>
+        `<div class="pm-summary-item">
+          <span>${v.name} &times; ${v.qty}</span>
+          <span>${fmt(v.price * v.qty)}</span>
+        </div>`
+      ).join('');
+
+      document.getElementById('pmBody').innerHTML = `
+        <div class="pm-summary-box">
+          ${ringkasan}
+          <div class="pm-summary-item pm-summary-fee">
+            <span>Biaya layanan</span><span>${fmt(SERVICE_FEE)}</span>
+          </div>
+          <div class="pm-summary-item pm-summary-total">
+            <span>Total</span><span>${fmt(total)}</span>
+          </div>
+        </div>
+
+        <div class="pm-form-group">
+          <label class="pm-label">Nama pemesan <span style="color:#e04e1a">*</span></label>
+          <input class="pm-input" type="text" id="pmNama" placeholder="Nama kamu"
+                 value="${namaDefault}" />
+        </div>
+
+        <div class="pm-form-group">
+          <label class="pm-label">Nomor HP <span style="color:#aaa;font-size:12px">(opsional)</span></label>
+          <input class="pm-input" type="tel" id="pmPhone" placeholder="08xxxxxxxxxx" />
+        </div>
+
+        <div class="pm-form-group">
+          <label class="pm-label">Catatan <span style="color:#aaa;font-size:12px">(opsional)</span></label>
+          <textarea class="pm-input" id="pmCatatan" rows="2"
+                    placeholder="cth. sambal dipisah, tidak pedas, dll."></textarea>
+        </div>
+
+        <div class="pm-footer" style="grid-template-columns:1fr">
+          <button class="pm-btn-confirm" onclick="showStepPilihMetode()">
+            Lanjut pilih pembayaran &#8250;
+          </button>
+        </div>`;
+    }
+
+    /* ── Step 1: Pilih metode bayar ── */
+    function showStepPilihMetode() {
+      // Validasi nama dulu
+      const namaInput = document.getElementById('pmNama');
+      if (namaInput) {
+        const v = namaInput.value.trim();
+        if (!v) {
+          namaInput.style.borderColor = '#e04e1a';
+          namaInput.focus();
+          namaInput.placeholder = 'Nama wajib diisi!';
+          return;
+        }
+        namaInput.style.borderColor = '';
+        // Simpan ke window untuk dipakai konfirmasiPesanan
+        window._pmNama    = v;
+        window._pmPhone   = document.getElementById('pmPhone')?.value.trim() || '';
+        window._pmCatatan = document.getElementById('pmCatatan')?.value.trim() || '';
+      }
+
+      document.getElementById('pmTitle').textContent = 'Pilih metode pembayaran';
+      document.getElementById('pmBody').innerHTML = `
+        <p class="pm-desc">Pilih cara kamu membayar pesanan ini.</p>
+        <div class="pm-methods">
+          <button class="pm-method-btn" onclick="showStepQRIS()">
+            <div class="pm-method-icon pm-icon-qris">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+                <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="3" height="3"/>
+                <rect x="18" y="14" width="3" height="3"/><rect x="14" y="18" width="3" height="3"/>
+                <rect x="18" y="18" width="3" height="3"/>
+              </svg>
+            </div>
+            <div class="pm-method-info">
+              <span class="pm-method-name">QRIS</span>
+              <span class="pm-method-desc">GoPay, OVO, Dana, ShopeePay, m-Banking</span>
+            </div>
+            <span class="pm-method-arrow">&#8250;</span>
+          </button>
+          <button class="pm-method-btn" onclick="showStepTunai()">
+            <div class="pm-method-icon pm-icon-tunai">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                <line x1="1" y1="10" x2="23" y2="10"/>
+              </svg>
+            </div>
+            <div class="pm-method-info">
+              <span class="pm-method-name">Tunai</span>
+              <span class="pm-method-desc">Bayar saat pesanan diambil atau diterima</span>
+            </div>
+            <span class="pm-method-arrow">&#8250;</span>
+          </button>
+        </div>
+        <div style="margin-top:12px">
+          <button class="pm-btn-back" onclick="showStepDetail()">&#8592; Kembali</button>
+        </div>`;
+    }
+
+    /* ── Step 2a: QRIS ── */
+    function showStepQRIS() {
+      const totalEl   = document.getElementById('totalPrice');
+      const totalText = totalEl ? totalEl.textContent : '';
+
+      document.getElementById('pmTitle').textContent = 'Bayar dengan QRIS';
+      document.getElementById('pmBody').innerHTML = `
+        <div class="pm-qris-wrap">
+          ${qrisUrl
+            ? `<img src="${qrisUrl}" alt="Kode QRIS" class="pm-qris-img">`
+            : `<div class="pm-qris-placeholder">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                   <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+                   <rect x="3" y="14" width="7" height="7"/>
+                 </svg>
+                 <p>Kode QRIS belum diupload oleh toko.<br>Hubungi kasir.</p>
+               </div>`}
+        </div>
+        <div class="pm-qris-info">
+          <p class="pm-qris-total">Total: <strong>${totalText}</strong></p>
+          <div class="pm-qris-steps">
+            <p class="pm-qris-step"><span class="pm-step-num">1</span> Buka aplikasi e-wallet atau m-Banking</p>
+            <p class="pm-qris-step"><span class="pm-step-num">2</span> Scan kode QR di atas</p>
+            <p class="pm-qris-step"><span class="pm-step-num">3</span> Masukkan nominal <strong>${totalText}</strong></p>
+            <p class="pm-qris-step"><span class="pm-step-num">4</span> Screenshot bukti & tunjukkan ke kasir</p>
+          </div>
+        </div>
+        <div class="pm-footer">
+          <button class="pm-btn-back" onclick="showStepPilihMetode()">&#8592; Kembali</button>
+          <button class="pm-btn-confirm" id="btnKonfirmQris" onclick="konfirmasiPesanan('QRIS')">&#10003; Sudah bayar</button>
+        </div>`;
+    }
+
+    /* ── Step 2b: Tunai ── */
+    function showStepTunai() {
+      const totalEl   = document.getElementById('totalPrice');
+      const totalText = totalEl ? totalEl.textContent : '';
+
+      document.getElementById('pmTitle').textContent = 'Bayar Tunai';
+      document.getElementById('pmBody').innerHTML = `
+        <div class="pm-tunai-wrap">
+          <div class="pm-tunai-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#e04e1a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+              <line x1="1" y1="10" x2="23" y2="10"/>
+            </svg>
+          </div>
+          <p class="pm-tunai-total">Siapkan uang sebesar</p>
+          <p class="pm-tunai-nominal">${totalText}</p>
+          <p class="pm-tunai-note">Bayar langsung ke kasir saat pesanan siap diambil, atau saat kurir tiba.</p>
+        </div>
+        <div class="pm-footer">
+          <button class="pm-btn-back" onclick="showStepPilihMetode()">&#8592; Kembali</button>
+          <button class="pm-btn-confirm" id="btnKonfirmTunai" onclick="konfirmasiPesanan('Tunai')">&#10003; Konfirmasi pesanan</button>
+        </div>`;
+    }
+
+    /* ── Konfirmasi & kirim pesanan ke server ── */
+    async function konfirmasiPesanan(metodeBayar) {
+      const btn = document.querySelector('#btnKonfirmQris, #btnKonfirmTunai');
+      if (btn) { btn.disabled = true; btn.textContent = 'Memproses...'; }
+
+      try {
+        const cartItems = Object.entries(window.cart || {}).map(([id, item]) => ({
+          varian_id: parseInt(id),
+          qty: item.qty
+        }));
+
+        if (!cartItems.length) {
+          if (btn) { btn.disabled = false; btn.textContent = 'Konfirmasi pesanan'; }
+          closePaymentModal();
+          return;
+        }
+
+        const nama    = window._pmNama    || getCookieVal('tk_nama') || 'Pelanggan';
+        const phone   = window._pmPhone   || '';
+        const catatan = window._pmCatatan || '';
+        const pickup  = window.pickupMode || 'ambil';
+
+        const res  = await fetch(PESANAN_API, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            nama_pelanggan:  nama,
+            phone_pelanggan: phone,
+            metode_ambil:    pickup,
+            metode_bayar:    metodeBayar,
+            catatan:         catatan,
+            items:           cartItems
+          })
+        });
+
+        const json = await res.json();
+        if (!json.success) throw new Error(json.message);
+
+        /* ── Sukses ── */
+        document.getElementById('pmTitle').textContent = 'Pesanan dikonfirmasi! 🎉';
+        document.getElementById('pmBody').innerHTML = `
+          <div class="pm-sukses">
+            <div class="pm-sukses-icon">&#10003;</div>
+            <h3>Terima kasih, ${nama.split(' ')[0]}!</h3>
+            <p>Pesanan <strong>#${json.nomor}</strong> berhasil dibuat.</p>
+            <p class="pm-sukses-meta">
+              ${metodeBayar === 'QRIS' ? '&#128247; Tunjukkan bukti bayar ke kasir' : '&#128181; Siapkan uang tunai saat pesanan tiba'}
+            </p>
+            <p class="pm-sukses-meta">
+              ${pickup === 'ambil' ? '&#127968; Ambil sendiri di toko' : '&#128666; Akan diantar ke lokasimu'}
+            </p>
+            <p class="pm-sukses-time">Pesanan siap sekitar 10&ndash;15 menit</p>
+            <button class="pm-btn-confirm" style="margin-top:20px;width:100%"
+                    onclick="selesaiPesanan('${json.nomor}')">Tutup &amp; kembali</button>
+          </div>`;
+
+      } catch(e) {
+        const msg = e.message || 'Terjadi kesalahan';
+        document.getElementById('pmBody').innerHTML += `
+          <p style="color:#c62828;font-size:13px;margin-top:12px;text-align:center">&#9888; ${msg}</p>`;
+        if (btn) { btn.disabled = false; btn.textContent = 'Coba lagi'; }
+      }
+    }
+
+    function selesaiPesanan(nomor) {
+      closePaymentModal();
+      // Bersihkan cart
+      const c = window.cart;
+      Object.keys(c).forEach(k => delete c[k]);
+      if (typeof renderCart === 'function') renderCart();
+      if (typeof showToast  === 'function') showToast('Pesanan #' + nomor + ' berhasil dibuat! 🧆');
+      // Bersihkan temp data
+      delete window._pmNama;
+      delete window._pmPhone;
+      delete window._pmCatatan;
+    }
+
+    /* ── openPaymentModal override ── */
+    function openPaymentModal() {
+      injectPaymentModal();
+      showStepDetail();   // mulai dari step detail, bukan langsung pilih metode
+      document.getElementById('paymentModal').classList.add('pm-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    /* ── Init ── */
+    window.checkoutOverride = openPaymentModal; // set di sini setelah semua fungsi terdefinisi
+    Promise.all([loadMenu(), loadQris()]);
+  </script>
+
+  <script src="../scripts/homePageUser.js?v=2"></script>
+
+</body>
+</html>

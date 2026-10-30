@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login – Tahu Kocek</title>
+  <link rel="stylesheet" href="../styles/login.css" />
+</head>
+<body>
+
+  <div class="page-wrapper">
+
+    <!-- Header / Brand -->
+    <header class="brand">
+      <div class="brand-logo">TK</div>
+      <div class="brand-info">
+        <span class="brand-name">TAHU KOCEK GUDES</span>
+        <span class="brand-tagline">Masuk untuk pesan lebih cepat</span>
+        <span class="brand-badge">LOGIN PELANGGAN</span>
+      </div>
+    </header>
+
+    <!-- Hero Text -->
+    <section class="hero">
+      <h1 class="hero-title">Masuk untuk pesan<br />lebih cepat.</h1>
+      <p class="hero-subtitle">
+        Gunakan email dan kata sandi untuk melanjutkan ke keranjang, riwayat<br />
+        pesanan, dan promo spesial.
+      </p>
+    </section>
+
+    <!-- Login Card -->
+    <div class="card">
+      <h2 class="card-title">Masuk ke akunmu</h2>
+      <p class="card-subtitle">Gunakan email dan kata sandi yang kamu gunakan saat pemesanan.</p>
+
+      <form action="../resources/login.php" method="POST" novalidate>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email</label>
+          <div class="input-wrapper">
+            <span class="input-icon">
+              <!-- envelope icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+            </span>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="nama@email.com"
+              autocomplete="email"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <div class="label-row">
+            <label for="password">Kata sandi</label>
+            <a href="#" class="forgot-link">Lupa kata sandi?</a>
+          </div>
+          <div class="input-wrapper">
+            <span class="input-icon">
+              <!-- lock icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </span>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="••••••••"
+              autocomplete="current-password"
+              required
+            />
+            <button type="button" class="toggle-password" aria-label="Tampilkan kata sandi">
+              <!-- eye icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Error message placeholder -->
+        <div class="error-message" id="errorMsg" role="alert" aria-live="polite"></div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn-login">Masuk ke akun →</button>
+
+      </form>
+
+      <p class="register-prompt">
+        Belum punya akun? <a href="register.html" class="register-link">Daftar di sini</a>
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+    // Toggle password visibility
+    const toggleBtn = document.querySelector('.toggle-password');
+    const passwordInput = document.getElementById('password');
+
+    toggleBtn.addEventListener('click', () => {
+      const isHidden = passwordInput.type === 'password';
+      passwordInput.type = isHidden ? 'text' : 'password';
+      toggleBtn.setAttribute('aria-label', isHidden ? 'Sembunyikan kata sandi' : 'Tampilkan kata sandi');
+    });
+
+    // Show error from URL param (set by login.php on failure)
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('error') === '1') {
+      const msg = document.getElementById('errorMsg');
+      msg.textContent = 'Email atau kata sandi salah. Silakan coba lagi.';
+    }
+  </script>
+
+</body>
+</html>

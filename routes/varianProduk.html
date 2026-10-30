@@ -1,0 +1,789 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produk &amp; Varian – Tahu Kocek Admin</title>
+  <link rel="stylesheet" href="../styles/varianProduk.css" />
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <div class="brand-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+        <path d="M8 12s1.5 2 4 2 4-2 4-2"/>
+        <line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
+      </svg>
+    </div>
+    <div class="brand-text">
+      <span class="brand-name">tahu kocek.</span>
+      <span class="brand-sub">PEKERNYA BIKIN NAGIH</span>
+    </div>
+  </div>
+  <div class="store-selector">
+    <div class="store-icon">TK</div>
+    <div class="store-info">
+      <span class="store-name">Tahu Kocek Pusat</span>
+      <span class="store-loc">Malang, Jawa Timur</span>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="store-chevron"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+  <div class="sidebar-section-label">MENU UTAMA</div>
+  <nav class="sidebar-nav">
+    <a href="dashboard.html" class="nav-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Ringkasan
+    </a>
+    <a href="pesanan.html" class="nav-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      Pesanan<span class="nav-badge">8</span>
+    </a>
+    <a href="varianProduk.html" class="nav-item active">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      Produk &amp; varian
+    </a>
+    <a href="laporan.html" class="nav-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      Laporan
+    </a>
+  </nav>
+  <div class="sidebar-section-label">PREFERENSI</div>
+  <nav class="sidebar-nav">
+    <a href="settingToko.html" class="nav-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+      Pengaturan toko
+    </a>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="user-avatar">DP</div>
+    <div class="user-info"><span class="user-name">Dina Putri</span><span class="user-role">Pemilik usaha</span></div>
+    <a href="../resources/logout.php" class="btn-logout" title="Keluar">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+    </a>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+  <header class="topbar">
+    <div class="topbar-breadcrumb">
+      <span class="breadcrumb-root">Admin</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      <span class="breadcrumb-current">Produk &amp; varian</span>
+    </div>
+    <div class="topbar-actions">
+      <span class="store-status open"><span class="status-dot"></span>Toko buka</span>
+      <a href="#" class="btn-lihat-toko">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Lihat toko
+      </a>
+      <button class="btn-notif" aria-label="Notifikasi">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="content-with-panel">
+    <div class="content" id="mainContent">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Produk &amp; varian</h1>
+          <p class="page-subtitle">Racik varian favorit, atur stok, dan tampilkan foto terbaikmu.</p>
+        </div>
+        <div class="page-date" id="pageDate"></div>
+      </div>
+
+      <!-- Stat Cards -->
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-header"><span class="stat-label">Penjualan hari ini</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="stat-value" id="statPenjualan">Rp0</div>
+          <div class="stat-change positive" id="statPenjualanNote">Memuat...</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-header"><span class="stat-label">Pesanan hari ini</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </div>
+          <div class="stat-value" id="statPesanan">0</div>
+          <div class="stat-change neutral" id="statPesananNote">Memuat...</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-header"><span class="stat-label">Varian aktif</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <div class="stat-value" id="statAktif">-</div>
+          <div class="stat-change neutral" id="statAktifNote">dari total varian</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-header"><span class="stat-label">Stok hampir habis</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <div class="stat-value" id="statStok">-</div>
+          <div class="stat-change warn" id="statStokNote">-</div>
+        </div>
+      </div>
+
+      <!-- Daftar Varian -->
+      <div class="card list-card">
+        <div class="list-header">
+          <div class="list-title-row">
+            <h2 class="card-title">Daftar varian</h2>
+            <span class="count-badge" id="countBadge">-</span>
+          </div>
+          <button class="btn-tambah-varian" onclick="openNewPanel()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Tambah varian
+          </button>
+        </div>
+        <div class="tab-bar">
+          <button class="tab active" data-tab="semua">Semua</button>
+          <button class="tab" data-tab="aktif">Aktif</button>
+          <button class="tab" data-tab="nonaktif">Nonaktif</button>
+        </div>
+        <div class="search-row">
+          <div class="search-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="searchInput" placeholder="Cari nama atau kode varian..." />
+          </div>
+          <button class="btn-filter" id="btnFilterStok">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+            Semua stok
+          </button>
+        </div>
+        <table class="varian-table">
+          <thead>
+            <tr>
+              <th>Nama varian</th>
+              <th>Harga</th>
+              <th>Stok</th>
+              <th>Status</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="varianTableBody"></tbody>
+        </table>
+        <div class="pagination">
+          <span class="page-info" id="pageInfo">-</span>
+          <div class="page-btns">
+            <button class="page-btn" disabled>&#8249;</button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">&#8250;</button>
+          </div>
+        </div>
+        <p class="table-note">&#8505; Stok dihitung per porsi. Varian nonaktif tidak ditampilkan di toko.</p>
+      </div>
+    </div>
+
+    <!-- Edit Panel -->
+    <aside class="edit-panel" id="editPanel">
+      <div class="edit-header">
+        <h3 class="edit-title" id="editTitle">Edit varian</h3>
+        <button class="btn-close-panel" id="btnClosePanel" aria-label="Tutup">&#x2715;</button>
+      </div>
+      <div class="edit-body" id="editBody"></div>
+    </aside>
+  </div>
+
+  <footer class="page-footer">
+    Terakhir diperbarui real-time dari database &middot; Stok dihitung dari pesanan masuk.
+  </footer>
+</div>
+
+<script>
+/* ============================================================
+   VARIAN – Full CRUD via API (UTF-8 clean)
+   ============================================================ */
+
+const API        = '../resources/api/varian.php';
+const UPLOAD_API = '../resources/api/upload.php';
+
+let variants  = [];
+let activeTab = 'semua';
+let activeId  = null;
+
+/* ── Helpers ── */
+function fmt(n){ return 'Rp' + Number(n).toLocaleString('id-ID'); }
+
+function showToast(msg, isError = false) {
+  let t = document.getElementById('toast');
+  if (!t) { t = document.createElement('div'); t.id = 'toast'; t.className = 'toast'; document.body.appendChild(t); }
+  t.textContent = msg;
+  t.style.background = isError ? '#c62828' : '#1a3a2e';
+  t.classList.add('show');
+  clearTimeout(t._t);
+  t._t = setTimeout(() => t.classList.remove('show'), 2600);
+}
+
+function showLoading(msg) {
+  document.getElementById('varianTableBody').innerHTML =
+    `<tr><td colspan="5" style="text-align:center;padding:28px;color:#aaa">${msg}</td></tr>`;
+}
+
+/* ── Update stat cards ── */
+function updateStats() {
+  const aktif    = variants.filter(v => v.status === 'aktif').length;
+  const hampir   = variants.filter(v => v.stok > 0 && v.stok <= 10);
+  const habis    = variants.filter(v => v.stok <= 0).length;
+
+  document.getElementById('statAktif').textContent     = aktif;
+  document.getElementById('statAktifNote').textContent = 'dari ' + variants.length + ' total varian';
+  document.getElementById('statStok').textContent      = hampir.length + ' varian';
+  document.getElementById('statStokNote').textContent  = hampir.length
+    ? hampir.map(v => v.nama.replace('Tahu Kocek ', '')).join(', ') + ' · stok menipis'
+    : habis > 0 ? habis + ' varian stok habis' : 'Semua stok aman';
+}
+
+/* ── Update count badge & tab labels ── */
+function updateCountBadge() {
+  const aktif    = variants.filter(v => v.status === 'aktif').length;
+  const nonaktif = variants.filter(v => v.status === 'nonaktif').length;
+  document.getElementById('countBadge').textContent = variants.length + ' varian';
+  document.getElementById('pageInfo').textContent   = 'Menampilkan 1–' + variants.length + ' dari ' + variants.length + ' varian';
+  document.querySelectorAll('.tab').forEach(t => {
+    if (t.dataset.tab === 'semua')    t.textContent = 'Semua (' + variants.length + ')';
+    if (t.dataset.tab === 'aktif')    t.textContent = 'Aktif (' + aktif + ')';
+    if (t.dataset.tab === 'nonaktif') t.textContent = 'Nonaktif (' + nonaktif + ')';
+  });
+  updateStats();
+}
+
+/* ── Load dari API ── */
+async function loadVariants() {
+  showLoading('Memuat varian...');
+  try {
+    const res  = await fetch(API);
+    const json = await res.json();
+    if (!json.success) throw new Error(json.message);
+    variants = json.data;
+    renderTable(activeTab, '');
+    updateCountBadge();
+    if (variants.length && !activeId) {
+      activeId = variants[0].id;
+      renderEditPanel(activeId);
+    }
+  } catch(e) {
+    showToast('Gagal memuat: ' + e.message, true);
+    showLoading('Gagal memuat data. Coba refresh halaman.');
+  }
+}
+
+/* ── Render Table ── */
+function renderTable(tab, query) {
+  const tbody = document.getElementById('varianTableBody');
+  let rows = [...variants];
+  if (tab !== 'semua') rows = rows.filter(v => v.status === tab);
+  if (query) rows = rows.filter(v =>
+    v.nama.toLowerCase().includes(query) || v.kode.toLowerCase().includes(query));
+
+  if (!rows.length) {
+    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:28px;color:#aaa">Tidak ada varian.</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = rows.map(v => {
+    const thumbContent = v.foto_url
+      ? `<img src="${v.foto_url}" alt="${v.nama}" style="width:42px;height:42px;object-fit:cover;border-radius:10px;display:block"
+              onerror="this.style.display='none'">`
+      : `<span style="font-size:22px">${v.emoji || '🧆'}</span>`;
+    return `
+    <tr class="varian-row ${v.id === activeId ? 'row-active' : ''}" onclick="selectVarian(${v.id})">
+      <td>
+        <div class="varian-name-cell">
+          <div class="varian-thumb">${thumbContent}</div>
+          <div>
+            <div class="varian-name">${v.nama}</div>
+            <div class="varian-code">${v.kode} &middot; ${v.sku}</div>
+          </div>
+        </div>
+      </td>
+      <td class="varian-price">${fmt(v.harga)}</td>
+      <td>
+        <span class="stok-val ${v.stok <= 10 ? 'stok-warn' : ''}">${v.stok} porsi</span>
+        ${v.stok === 0 ? '<span class="stok-empty">Stok habis</span>' : v.stok <= 10 ? '<span class="stok-low">Hampir habis</span>' : ''}
+      </td>
+      <td><span class="status-badge ${v.status}">${v.status === 'aktif' ? 'Aktif' : 'Nonaktif'}</span></td>
+      <td>
+        <button class="btn-edit-row" onclick="event.stopPropagation(); selectVarian(${v.id})" title="Edit">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          </svg>
+        </button>
+        <button class="btn-edit-row" onclick="event.stopPropagation(); deleteVarian(${v.id}, '${v.nama.replace(/'/g, "\\'")}')"
+                title="Hapus" style="margin-left:4px;color:#c62828;border-color:#f9d5c8">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/>
+            <path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/>
+          </svg>
+        </button>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+/* ── Render Edit Panel ── */
+function renderEditPanel(id) {
+  const v = variants.find(x => x.id === id);
+  if (!v) return;
+  activeId = id;
+  document.getElementById('editTitle').textContent = 'Edit varian';
+  document.getElementById('editPanel').classList.add('panel-open');
+
+  const fotoPreview = v.foto_url
+    ? `<img id="fotoPreviewImg" src="${v.foto_url}" alt="${v.nama}"
+           style="width:100%;max-height:160px;object-fit:cover;border-radius:10px;display:block"
+           onerror="this.style.display='none';document.getElementById('fotoFallback').style.display='flex'">`
+    : '';
+  const fotoFallbackDisplay = v.foto_url ? 'none' : 'flex';
+
+  document.getElementById('editBody').innerHTML = `
+    <p class="edit-subtitle">Perbarui detail ${v.nama}</p>
+
+    <div class="form-group">
+      <div class="label-row-space">
+        <label class="form-label">Foto varian</label>
+        <span class="label-note">Rekomendasi 1:1</span>
+      </div>
+      <div class="foto-upload-area" id="fotoArea">
+        ${fotoPreview}
+        <div id="fotoFallback" style="display:${fotoFallbackDisplay};flex-direction:column;align-items:center;gap:6px;padding:12px 0">
+          <span style="font-size:40px">${v.emoji || '🧆'}</span>
+          <span style="font-size:12px;color:#888">Belum ada foto</span>
+        </div>
+        <p id="fotoUploadStatus" style="font-size:12px;color:#888;margin-top:6px;text-align:center;min-height:18px"></p>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <label for="fotoFileInput" class="btn-pilih-foto" style="flex:1;justify-content:center;cursor:pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          ${v.foto_url ? 'Ganti foto' : 'Pilih foto'}
+        </label>
+        ${v.foto_url ? '<button type="button" id="btnHapusFoto" class="btn-foto-secondary" style="padding:8px 12px;font-size:12px;cursor:pointer;background:#fff;border:1.5px solid #e0e0e0;border-radius:8px">&#128465; Hapus</button>' : ''}
+      </div>
+      <input type="file" id="fotoFileInput" accept="image/jpeg,image/png,image/webp,image/gif" style="display:none" />
+      <p class="input-hint">JPG, PNG, WEBP &middot; Maks. 5 MB</p>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Nama varian <span class="required">*</span></label>
+      <input class="form-input" type="text" id="inputNama" value="${v.nama}" />
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Deskripsi <span class="optional">Opsional</span></label>
+      <textarea class="form-input form-textarea" id="inputDesc" rows="3">${v.deskripsi || ''}</textarea>
+    </div>
+
+    <div class="form-row-2">
+      <div class="form-group">
+        <label class="form-label">Harga jual <span class="required">*</span></label>
+        <div class="input-prefix-wrap">
+          <span class="input-prefix">Rp</span>
+          <input class="form-input input-with-prefix" type="number" id="inputHarga" value="${v.harga}" min="0" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Stok tersedia <span class="required">*</span></label>
+        <div class="input-suffix-wrap">
+          <input class="form-input input-with-suffix" type="number" id="inputStok" value="${v.stok}" min="0" />
+          <span class="input-suffix">porsi</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Aktifkan varian</label>
+      <p class="input-hint">Tampilkan varian ini di halaman toko.</p>
+      <label class="toggle-switch">
+        <input type="checkbox" id="toggleAktif" ${v.status === 'aktif' ? 'checked' : ''} />
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+        <span class="toggle-label" id="toggleLabel">${v.status === 'aktif' ? 'Aktif' : 'Nonaktif'}</span>
+      </label>
+    </div>
+
+    <div class="edit-actions">
+      <button class="btn-batal" onclick="closePanel()">Batal</button>
+      <button class="btn-simpan" id="btnSimpan">&#10004; Simpan perubahan</button>
+    </div>
+  `;
+
+  /* Event listeners (bukan inline onchange) */
+  document.getElementById('fotoFileInput').addEventListener('change', function() {
+    uploadFoto(this, v.id);
+  });
+
+  const btnHapusFoto = document.getElementById('btnHapusFoto');
+  if (btnHapusFoto) btnHapusFoto.addEventListener('click', () => hapusFoto(v.id));
+
+  document.getElementById('btnSimpan').addEventListener('click', () => saveVarian(v.id));
+
+  document.getElementById('toggleAktif').addEventListener('change', function() {
+    const lbl = document.getElementById('toggleLabel');
+    if (lbl) lbl.textContent = this.checked ? 'Aktif' : 'Nonaktif';
+    toggleStatusLive(v.id, this.checked);
+  });
+}
+
+/* ── Render New Panel ── */
+function renderNewPanel() {
+  document.getElementById('editTitle').textContent = 'Tambah varian baru';
+  document.getElementById('editPanel').classList.add('panel-open');
+  document.getElementById('editBody').innerHTML = `
+    <p class="edit-subtitle">Isi data varian baru untuk ditampilkan di toko.</p>
+
+    <div class="form-group">
+      <label class="form-label">Foto varian <span class="optional">Opsional</span></label>
+      <div class="foto-upload-area" id="fotoAreaNew">
+        <div id="fotoPreviewNew" style="display:none">
+          <img id="fotoPreviewImgNew" src="" alt="Preview"
+               style="width:100%;max-height:140px;object-fit:cover;border-radius:10px;display:block">
+        </div>
+        <div id="fotoFallbackNew" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 0">
+          <span style="font-size:36px">&#128444;</span>
+          <span style="font-size:12px;color:#888">Belum ada foto dipilih</span>
+        </div>
+        <p id="fotoStatusNew" style="font-size:12px;color:#888;text-align:center;min-height:16px"></p>
+      </div>
+      <label for="fotoInputNew" class="btn-pilih-foto" style="width:100%;justify-content:center;margin-top:8px;cursor:pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        Pilih foto
+      </label>
+      <input type="file" id="fotoInputNew" accept="image/jpeg,image/png,image/webp,image/gif" style="display:none" />
+      <p class="input-hint">JPG, PNG, WEBP &middot; Maks. 5 MB</p>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Nama varian <span class="required">*</span></label>
+      <input class="form-input" type="text" id="inputNamaBaru" placeholder="cth. Tahu Kocek Coklat" />
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Deskripsi <span class="optional">Opsional</span></label>
+      <textarea class="form-input form-textarea" id="inputDescBaru" rows="3" placeholder="Deskripsikan varian ini..."></textarea>
+    </div>
+
+    <div class="form-row-2">
+      <div class="form-group">
+        <label class="form-label">Harga jual <span class="required">*</span></label>
+        <div class="input-prefix-wrap">
+          <span class="input-prefix">Rp</span>
+          <input class="form-input input-with-prefix" type="number" id="inputHargaBaru" placeholder="0" min="0" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Stok awal <span class="required">*</span></label>
+        <div class="input-suffix-wrap">
+          <input class="form-input input-with-suffix" type="number" id="inputStokBaru" placeholder="0" min="0" />
+          <span class="input-suffix">porsi</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Aktifkan langsung</label>
+      <label class="toggle-switch">
+        <input type="checkbox" id="toggleAktifBaru" checked />
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+        <span class="toggle-label">Aktif</span>
+      </label>
+    </div>
+
+    <div class="edit-actions">
+      <button class="btn-batal" onclick="closePanel()">Batal</button>
+      <button class="btn-simpan" id="btnSimpanBaru">+ Tambah varian</button>
+    </div>
+  `;
+
+  document.getElementById('fotoInputNew').addEventListener('change', function() {
+    previewFotoBaru(this);
+  });
+  document.getElementById('btnSimpanBaru').addEventListener('click', saveNewVarian);
+}
+
+/* ── Panel helpers ── */
+function selectVarian(id) {
+  activeId = id;
+  renderTable(activeTab, document.getElementById('searchInput').value.toLowerCase());
+  renderEditPanel(id);
+}
+
+function openNewPanel() {
+  activeId = null;
+  renderTable(activeTab, '');
+  renderNewPanel();
+}
+
+function closePanel() {
+  document.getElementById('editPanel').classList.remove('panel-open');
+  activeId = null;
+  renderTable(activeTab, '');
+}
+
+/* ── Toggle status (langsung simpan ke DB) ── */
+async function toggleStatusLive(id, checked) {
+  try {
+    const res  = await fetch(API + '?id=' + id, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ status: checked ? 'aktif' : 'nonaktif' })
+    });
+    const json = await res.json();
+    if (!json.success) throw new Error(json.message);
+    const v = variants.find(x => x.id === id);
+    if (v) v.status = json.data.status;
+    renderTable(activeTab, '');
+    updateCountBadge();
+  } catch(e) {
+    showToast('Gagal update status: ' + e.message, true);
+    // Kembalikan toggle
+    const cb = document.getElementById('toggleAktif');
+    if (cb) cb.checked = !checked;
+    const lbl = document.getElementById('toggleLabel');
+    if (lbl) lbl.textContent = checked ? 'Nonaktif' : 'Aktif';
+  }
+}
+
+/* ── Simpan edit ── */
+async function saveVarian(id) {
+  const nama  = document.getElementById('inputNama')?.value.trim();
+  const desc  = document.getElementById('inputDesc')?.value.trim();
+  const harga = parseInt(document.getElementById('inputHarga')?.value);
+  const stok  = parseInt(document.getElementById('inputStok')?.value);
+
+  if (!nama)          { showToast('Nama varian tidak boleh kosong.', true); return; }
+  if (isNaN(harga) || harga < 0) { showToast('Harga tidak valid.', true); return; }
+  if (isNaN(stok)  || stok  < 0) { showToast('Stok tidak valid.',  true); return; }
+
+  const btn = document.getElementById('btnSimpan');
+  if (btn) { btn.disabled = true; btn.textContent = 'Menyimpan...'; }
+
+  try {
+    const res  = await fetch(API + '?id=' + id, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nama, deskripsi: desc, harga, stok })
+    });
+    const json = await res.json();
+    if (!json.success) throw new Error(json.message);
+    const idx = variants.findIndex(x => x.id === id);
+    if (idx !== -1) variants[idx] = { ...variants[idx], ...json.data };
+    renderTable(activeTab, '');
+    updateCountBadge();
+    renderEditPanel(id);
+    showToast('Varian "' + nama + '" berhasil disimpan ✓');
+  } catch(e) {
+    showToast('Gagal menyimpan: ' + e.message, true);
+    if (btn) { btn.disabled = false; btn.textContent = '✔ Simpan perubahan'; }
+  }
+}
+
+/* ── Tambah varian baru ── */
+async function saveNewVarian() {
+  const nama  = document.getElementById('inputNamaBaru')?.value.trim();
+  const desc  = document.getElementById('inputDescBaru')?.value.trim();
+  const harga = parseInt(document.getElementById('inputHargaBaru')?.value);
+  const stok  = parseInt(document.getElementById('inputStokBaru')?.value);
+  const aktif = document.getElementById('toggleAktifBaru')?.checked;
+
+  if (!nama)          { showToast('Nama varian wajib diisi.', true); return; }
+  if (isNaN(harga) || harga < 0) { showToast('Harga tidak valid.', true); return; }
+  if (isNaN(stok)  || stok  < 0) { showToast('Stok tidak valid.',  true); return; }
+
+  const btn = document.getElementById('btnSimpanBaru');
+  if (btn) { btn.disabled = true; btn.textContent = 'Menyimpan...'; }
+
+  try {
+    const res  = await fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nama, deskripsi: desc, harga, stok, status: aktif ? 'aktif' : 'nonaktif', emoji: '🆕' })
+    });
+    const json = await res.json();
+    if (!json.success) throw new Error(json.message);
+    variants.push(json.data);
+    // Upload foto jika ada
+    const fotoInput = document.getElementById('fotoInputNew');
+    if (fotoInput && fotoInput.files.length) {
+      await uploadFotoBaru(json.data.id, fotoInput);
+    }
+    activeTab = 'semua';
+    document.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', b.dataset.tab === 'semua'));
+    closePanel();
+    updateCountBadge();
+    showToast('Varian "' + nama + '" berhasil ditambahkan ✓');
+  } catch(e) {
+    showToast('Gagal menambahkan: ' + e.message, true);
+    if (btn) { btn.disabled = false; btn.textContent = '+ Tambah varian'; }
+  }
+}
+
+/* ── DELETE varian ── */
+async function deleteVarian(id, nama) {
+  if (!confirm('Hapus varian "' + nama + '"?\n\nJika varian memiliki riwayat pesanan, varian akan dinonaktifkan (tidak dihapus permanen).')) return;
+
+  try {
+    const res  = await fetch(API + '?id=' + id, { method: 'DELETE' });
+    const json = await res.json();
+    if (!json.success) throw new Error(json.message);
+
+    if (json.message.includes('dinonaktifkan')) {
+      // API tidak hapus, hanya nonaktifkan — sync status lokal
+      const v = variants.find(x => x.id === id);
+      if (v) v.status = 'nonaktif';
+      showToast('Varian "' + nama + '" dinonaktifkan (memiliki riwayat pesanan).');
+    } else {
+      // Benar-benar dihapus
+      const idx = variants.findIndex(x => x.id === id);
+      if (idx !== -1) variants.splice(idx, 1);
+      showToast('Varian "' + nama + '" berhasil dihapus ✓');
+    }
+
+    if (activeId === id) {
+      closePanel();
+    } else {
+      renderTable(activeTab, document.getElementById('searchInput').value.toLowerCase());
+    }
+    updateCountBadge();
+  } catch(e) {
+    showToast('Gagal menghapus: ' + e.message, true);
+  }
+}
+
+/* ── Upload foto ke server ── */
+async function uploadFoto(input, varianId) {
+  if (!input || !input.files || !input.files.length) return;
+  const file = input.files[0];
+  const allowed = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif'];
+  if (!allowed.includes(file.type)) { showToast('Tipe file tidak didukung.', true); return; }
+  if (file.size > 5 * 1024 * 1024) { showToast('Ukuran file melebihi 5 MB.', true); return; }
+
+  // Preview instan
+  const reader = new FileReader();
+  reader.onload = e => {
+    let img = document.getElementById('fotoPreviewImg');
+    if (!img) {
+      img = document.createElement('img');
+      img.id = 'fotoPreviewImg';
+      img.style.cssText = 'width:100%;max-height:160px;object-fit:cover;border-radius:10px;display:block';
+      const area = document.getElementById('fotoArea');
+      if (area) area.insertBefore(img, area.firstChild);
+    }
+    img.src = e.target.result;
+    img.style.display = 'block';
+    const fb = document.getElementById('fotoFallback');
+    if (fb) fb.style.display = 'none';
+  };
+  reader.readAsDataURL(file);
+
+  const status = document.getElementById('fotoUploadStatus');
+  if (status) status.textContent = 'Mengupload...';
+
+  const fd = new FormData();
+  fd.append('foto', file);
+  fd.append('varian_id', varianId);
+  try {
+    const res  = await fetch(UPLOAD_API, { method: 'POST', body: fd });
+    const json = await res.json();
+    if (!json.success) throw new Error(json.message);
+    const v = variants.find(x => x.id === varianId);
+    if (v) v.foto_url = json.url;
+    if (status) status.textContent = '✓ Foto tersimpan';
+    renderTable(activeTab, '');
+    showToast('Foto berhasil diupload ✓');
+  } catch(e) {
+    if (status) status.textContent = 'Gagal: ' + e.message;
+    showToast('Gagal upload: ' + e.message, true);
+  }
+}
+
+/* ── Hapus foto varian ── */
+async function hapusFoto(varianId) {
+  if (!confirm('Hapus foto varian ini?')) return;
+  try {
+    const res  = await fetch(API + '?id=' + varianId, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ foto_url: '' })
+    });
+    const json = await res.json();
+    if (!json.success) throw new Error(json.message);
+    const v = variants.find(x => x.id === varianId);
+    if (v) v.foto_url = '';
+    renderTable(activeTab, '');
+    renderEditPanel(varianId);
+    showToast('Foto berhasil dihapus ✓');
+  } catch(e) {
+    showToast('Gagal hapus foto: ' + e.message, true);
+  }
+}
+
+/* ── Preview foto baru ── */
+function previewFotoBaru(input) {
+  if (!input || !input.files || !input.files.length) return;
+  const file = input.files[0];
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img  = document.getElementById('fotoPreviewImgNew');
+    const prev = document.getElementById('fotoPreviewNew');
+    const fb   = document.getElementById('fotoFallbackNew');
+    const st   = document.getElementById('fotoStatusNew');
+    if (img)  img.src = e.target.result;
+    if (prev) prev.style.display = 'block';
+    if (fb)   fb.style.display = 'none';
+    if (st)   st.textContent = file.name + ' (' + (file.size / 1024).toFixed(0) + ' KB)';
+  };
+  reader.readAsDataURL(file);
+}
+
+/* ── Upload foto setelah varian baru disimpan ── */
+async function uploadFotoBaru(varianId, input) {
+  if (!input || !input.files || !input.files.length) return;
+  const fd = new FormData();
+  fd.append('foto', input.files[0]);
+  fd.append('varian_id', varianId);
+  try {
+    const res  = await fetch(UPLOAD_API, { method: 'POST', body: fd });
+    const json = await res.json();
+    if (json.success) {
+      const v = variants.find(x => x.id === varianId);
+      if (v) v.foto_url = json.url;
+      renderTable(activeTab, '');
+      showToast('Foto varian baru berhasil diupload ✓');
+    }
+  } catch(e) { /* silent */ }
+}
+
+/* ── Tab listener ── */
+document.querySelectorAll('.tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeTab = btn.dataset.tab;
+    renderTable(activeTab, document.getElementById('searchInput').value.toLowerCase());
+  });
+});
+
+/* ── Search ── */
+document.getElementById('searchInput').addEventListener('input', e => {
+  renderTable(activeTab, e.target.value.toLowerCase());
+});
+
+/* ── Close panel ── */
+document.getElementById('btnClosePanel').addEventListener('click', closePanel);
+
+/* ── Date ── */
+const days = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+const months = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+const _now = new Date();
+document.getElementById('pageDate').textContent =
+  '📅 ' + days[_now.getDay()] + ', ' + _now.getDate() + ' ' + months[_now.getMonth()] + ' ' + _now.getFullYear();
+
+/* ── Init ── */
+loadVariants();
+</script>
+</body>
+</html>

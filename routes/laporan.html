@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laporan – Tahu Kocek Admin</title>
+  <link rel="stylesheet" href="../styles/laporan.css" />
+</head>
+<body>
+
+<!-- ══════════════════════════════ SIDEBAR ══ -->
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <div class="brand-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+        <path d="M8 12s1.5 2 4 2 4-2 4-2"/>
+        <line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
+      </svg>
+    </div>
+    <div class="brand-text">
+      <span class="brand-name">tahu kocek.</span>
+      <span class="brand-sub">PEKERNYA BIKIN NAGIH</span>
+    </div>
+  </div>
+  <div class="store-selector">
+    <div class="store-icon">TK</div>
+    <div class="store-info"><span class="store-name">Tahu Kocek Pusat</span><span class="store-loc">Malang, Jawa Timur</span></div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="store-chevron"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+  <div class="sidebar-section-label">MENU UTAMA</div>
+  <nav class="sidebar-nav">
+    <a href="dashboard.html" class="nav-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Ringkasan
+    </a>
+    <a href="pesanan.html" class="nav-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      Pesanan<span class="nav-badge">8</span>
+    </a>
+    <a href="varianProduk.html" class="nav-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      Produk &amp; varian
+    </a>
+    <a href="laporan.html" class="nav-item active">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      Laporan
+    </a>
+  </nav>
+  <div class="sidebar-section-label">PREFERENSI</div>
+  <nav class="sidebar-nav">
+    <a href="settingToko.html" class="nav-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+      Pengaturan toko
+    </a>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="user-avatar">DP</div>
+    <div class="user-info"><span class="user-name">Dina Putri</span><span class="user-role">Pemilik usaha</span></div>
+    <a href="../resources/logout.php" class="btn-logout" title="Keluar">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+    </a>
+  </div>
+</aside>
+
+<!-- ══════════════════════════════ MAIN ══ -->
+<div class="main">
+  <header class="topbar">
+    <div class="topbar-breadcrumb">
+      <span class="breadcrumb-root">Admin</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      <span class="breadcrumb-current">Laporan</span>
+    </div>
+    <div class="topbar-actions">
+      <span class="store-status open"><span class="status-dot"></span>Toko buka</span>
+      <a href="#" class="btn-lihat-toko">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Lihat toko
+      </a>
+      <button class="btn-notif" aria-label="Notifikasi">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="content">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Laporan</h1>
+        <p class="page-subtitle">Kenali perkembangan usaha dan temukan racikan strategi berikutnya.</p>
+      </div>
+      <button class="btn-ekspor">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Ekspor laporan
+      </button>
+    </div>
+
+    <!-- Periode Filter -->
+    <div class="periode-bar">
+      <div class="periode-tabs">
+        <span class="periode-label">Periode</span>
+        <button class="ptab" data-p="hari">Hari ini</button>
+        <button class="ptab active" data-p="7hari">7 hari terakhir</button>
+        <button class="ptab" data-p="bulan">Bulan ini</button>
+      </div>
+      <div class="periode-range">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span id="periodeRange">13 Okt 2026 – 19 Okt 2026</span>
+        <span class="periode-compare">Dibandingkan 6–12 Oktober 2026</span>
+      </div>
+    </div>
+
+    <!-- Stat Cards -->
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-header"><span class="stat-label">Pendapatan penjualan</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div class="stat-value">Rp8.108.000</div>
+        <div class="stat-change positive">+16,2% dari periode sebelumnya</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-header"><span class="stat-label">Total transaksi</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </div>
+        <div class="stat-value">418</div>
+        <div class="stat-change positive">+11,8% dari periode sebelumnya</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-header"><span class="stat-label">Rata-rata transaksi</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="stat-value">Rp19.397</div>
+        <div class="stat-change positive">+3,9% dari periode sebelumnya</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-header"><span class="stat-label">Porsi terjual</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <div class="stat-value">608 porsi</div>
+        <div class="stat-change neutral">Dari 5 varian terjual</div>
+      </div>
+    </div>
+
+    <!-- Mid Grid: Chart + Metode Pembayaran -->
+    <div class="mid-grid">
+
+      <!-- Bar Chart -->
+      <div class="card chart-card">
+        <div class="chart-header">
+          <div>
+            <h2 class="card-title">Tren penjualan</h2>
+            <p class="chart-sub">Pendapatan harian · dalam juta rupiah</p>
+          </div>
+        </div>
+        <div class="chart-area">
+          <div class="y-axis" id="yAxis"></div>
+          <div class="bar-chart-wrap">
+            <div class="bar-chart" id="barChart"></div>
+            <div class="bar-labels" id="barLabels"></div>
+          </div>
+        </div>
+        <p class="chart-insight">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Penjualan tertinggi Minggu, 18 Oktober: Rp1.520.000
+        </p>
+      </div>
+
+      <!-- Metode Pembayaran -->
+      <div class="card pay-card">
+        <h2 class="card-title">Metode pembayaran</h2>
+        <p class="card-sub">418 transaksi · 13–19 Oktober 2026</p>
+        <!-- Stacked bar -->
+        <div class="stacked-bar">
+          <div class="stacked-seg" style="width:59%;background:#e04e1a"></div>
+          <div class="stacked-seg" style="width:27%;background:#f9d5c8"></div>
+          <div class="stacked-seg" style="width:14%;background:#faf5ec"></div>
+        </div>
+        <div class="pay-list">
+          <div class="pay-item">
+            <span class="pay-dot" style="background:#e04e1a"></span>
+            <div class="pay-info"><span class="pay-name">QRIS</span><span class="pay-count">240 transaksi</span></div>
+            <span class="pay-amount">Rp4.720.000</span>
+          </div>
+          <div class="pay-item">
+            <span class="pay-dot" style="background:#f9d5c8"></span>
+            <div class="pay-info"><span class="pay-name">Tunai</span><span class="pay-count">112 transaksi</span></div>
+            <span class="pay-amount">Rp2.168.000</span>
+          </div>
+          <div class="pay-item">
+            <span class="pay-dot" style="background:#ccc"></span>
+            <div class="pay-info"><span class="pay-name">Transfer bank</span><span class="pay-count">60 transaksi</span></div>
+            <span class="pay-amount">Rp1.220.000</span>
+          </div>
+        </div>
+        <p class="pay-insight">QRIS digunakan pada 59% transaksi. Pembayaran praktis, antrean lebih singkat.</p>
+      </div>
+    </div>
+
+    <!-- Tabel Performa Varian -->
+    <div class="card table-card">
+      <div class="table-header-row">
+        <div>
+          <h2 class="card-title">Performa varian</h2>
+          <p class="card-sub">Urut berdasarkan pendapatan tertinggi</p>
+        </div>
+        <span class="count-badge">5 varian</span>
+      </div>
+      <table class="perf-table">
+        <thead>
+          <tr>
+            <th>Varian</th>
+            <th>Harga per porsi</th>
+            <th>Porsi terjual</th>
+            <th>Pendapatan</th>
+            <th>Kontribusi</th>
+          </tr>
+        </thead>
+        <tbody id="perfTableBody"></tbody>
+        <tfoot>
+          <tr class="tfoot-row">
+            <td><strong>Total</strong></td>
+            <td>—</td>
+            <td><strong>608 porsi</strong></td>
+            <td><strong>Rp8.108.000</strong></td>
+            <td><strong>100%</strong></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+  </div><!-- /content -->
+
+  <footer class="page-footer">
+    <span>ℹ Pendapatan hanya mencakup transaksi valid, tidak termasuk biaya antar dan pesanan dibatalkan.</span>
+    <span>Diperbarui 19 Okt 2026 · 14.35 WIB</span>
+  </footer>
+</div>
+
+<script>
+/* ── Bar Chart ── */
+const chartData = [
+  {day:'Sel, 13',val:940000},{day:'Rab, 14',val:1060000},{day:'Kam, 15',val:980000},
+  {day:'Jum, 16',val:1120000},{day:'Sab, 17',val:1240000},{day:'Min, 18',val:1520000},
+  {day:'Sen, 19',val:1248000},
+];
+const maxVal = Math.max(...chartData.map(d=>d.val));
+const chart  = document.getElementById('barChart');
+const labels = document.getElementById('barLabels');
+const yAxis  = document.getElementById('yAxis');
+
+chartData.forEach((d,i)=>{
+  const pct = (d.val/maxVal)*100;
+  const col = document.createElement('div'); col.className='bar-col';
+  const wrap = document.createElement('div'); wrap.className='bar-wrap';
+  const lbl = document.createElement('span'); lbl.className='bar-val-label';
+  lbl.textContent = (d.val/1000).toLocaleString('id-ID');
+  const bar = document.createElement('div');
+  bar.className = 'bar'+(i===chartData.length-1?' bar-active':'');
+  bar.style.height = pct+'%';
+  wrap.append(lbl,bar); col.append(wrap); chart.append(col);
+  const dl = document.createElement('span'); dl.className='bar-day';
+  dl.textContent=d.day; labels.append(dl);
+});
+
+[2000000,1500000,1000000,500000,0].forEach(v=>{
+  const s=document.createElement('span');
+  s.textContent=v===0?'Rp0':(v>=1000000?'Rp'+(v/1000000)+'jt':'Rp'+(v/1000)+'rb');
+  yAxis.append(s);
+});
+
+/* ── Performa Varian ── */
+const variants = [
+  {emoji:'🧆',name:'Tahu Kocek Original',  code:'TK-ORI',price:12000,porsi:216,pendapatan:2592000,kontribusi:32},
+  {emoji:'🌶️',name:'Tahu Kocek Pedas Level 3',code:'TK-P33',price:14000,porsi:160,pendapatan:2240000,kontribusi:28},
+  {emoji:'🧀',name:'Tahu Kocek Keju',       code:'TK-KJU',price:15000,porsi:100,pendapatan:1500000,kontribusi:18},
+  {emoji:'🍛',name:'Tahu Kocek Balado',     code:'TK-BLD',price:13000,porsi:72, pendapatan:936000, kontribusi:12},
+  {emoji:'🌿',name:'Tahu Kocek Daun Jeruk', code:'TK-DJ', price:14000,porsi:60, pendapatan:840000, kontribusi:10},
+];
+function fmt(n){return'Rp'+n.toLocaleString('id-ID');}
+document.getElementById('perfTableBody').innerHTML = variants.map(v=>`
+  <tr>
+    <td><div class="varian-cell"><span class="varian-emoji">${v.emoji}</span>
+      <div><div class="varian-name">${v.name}</div><div class="varian-code">${v.code}</div></div></div></td>
+    <td>${fmt(v.price)}</td>
+    <td>${v.porsi} porsi</td>
+    <td class="td-revenue">${fmt(v.pendapatan)}</td>
+    <td>
+      <div class="kontribusi-wrap">
+        <div class="kontribusi-bar-bg"><div class="kontribusi-bar" style="width:${v.kontribusi}%"></div></div>
+        <span class="kontribusi-pct">${v.kontribusi}%</span>
+      </div>
+    </td>
+  </tr>
+`).join('');
+
+/* ── Periode tabs ── */
+document.querySelectorAll('.ptab').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
